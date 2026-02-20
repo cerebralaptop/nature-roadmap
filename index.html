@@ -1213,23 +1213,62 @@
     line-height: 1.6;
   }
 
-  /* ===== IMAGE GALLERY STRIP ===== */
-  .image-strip {
+  /* ===== CASE STUDIES CAROUSEL ===== */
+  .case-carousel-section {
+    background: var(--light-gray);
+  }
+  .case-carousel {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     overflow-x: auto;
-    padding: 2rem 0;
+    padding: 1rem 0 2rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
-  .image-strip::-webkit-scrollbar { height: 6px; }
-  .image-strip::-webkit-scrollbar-thumb { background: var(--green-mid); border-radius: 3px; }
-  .image-strip img {
-    height: 250px;
-    border-radius: 12px;
-    object-fit: cover;
-    scroll-snap-align: start;
+  .case-carousel::-webkit-scrollbar { height: 6px; }
+  .case-carousel::-webkit-scrollbar-thumb { background: var(--green-mid); border-radius: 3px; }
+  .case-carousel-card {
     flex-shrink: 0;
+    width: 320px;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    scroll-snap-align: start;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .case-carousel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  }
+  .case-carousel-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .case-carousel-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+  .case-carousel-body h4 {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+  .case-carousel-location {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--green-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+  }
+  .case-carousel-body p {
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.6;
   }
 
   /* ===== TNFD SECTION ===== */
@@ -1480,25 +1519,6 @@
     opacity: 0.7;
   }
 
-  /* ===== CASE STUDY CARDS ===== */
-  .case-study {
-    background: var(--green-pale);
-    border-radius: 16px;
-    padding: 2rem;
-    margin-top: 1.5rem;
-    border-left: 4px solid var(--green-mid);
-  }
-  .case-study h4 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--green-mid);
-    margin-bottom: 0.5rem;
-  }
-  .case-study p {
-    font-size: 0.88rem;
-    color: var(--slate);
-  }
 
   /* ===== POLICY LANDSCAPE ===== */
   .policy-section { background: var(--white); }
@@ -2845,20 +2865,6 @@
   </div>
 </section>
 
-<!-- Image Gallery -->
-<div class="container" style="padding: 2rem;">
-  <div class="image-strip">
-    <img src="images/image7.jpeg" alt="Ginninderry, ACT">
-    <img src="images/image11.jpeg" alt="Alkimos Beach, WA">
-    <img src="images/image12.jpeg" alt="Naarm development">
-    <img src="images/image14.jpeg" alt="Green development">
-    <img src="images/image18.jpeg" alt="Burwood Brickworks">
-    <img src="images/image19.png" alt="80 Ann St, QLD">
-    <img src="images/image21.jpeg" alt="Nature landscape">
-    <img src="images/image35.jpeg" alt="Sustainable building">
-  </div>
-</div>
-
 <!-- Challenge & Response -->
 <section class="cr-section" id="response">
   <div class="container">
@@ -3405,10 +3411,6 @@
             </div>
           </div>
         </div>
-        <div class="case-study">
-          <h4>Case Study</h4>
-          <p><strong>The Netherlands' "No Net Loss" Planning Policy:</strong> Under the Dutch Nature Conservation Act, developments impacting protected species must follow a strict mitigation hierarchy: avoid, minimise, and compensate with measurable outcomes integrated into spatial planning and permitting.</p>
-        </div>
       </div>
       <div class="principle-detail-image">
         <img src="images/image11.jpeg" alt="Alkimos Beach, WA">
@@ -3450,10 +3452,6 @@
               <div class="mini-rm-card mc-p2" onclick="openPanel('p2-additional')">Consider additional net gains with greater weighting on onsite actions</div>
             </div>
           </div>
-        </div>
-        <div class="case-study">
-          <h4>Case Study</h4>
-          <p><strong>UK Biodiversity Net Gain (Environment Act 2021):</strong> In England, all major developments must deliver at least 10% measurable biodiversity net gain from 2024, secured for a minimum of 30 years. This drives innovation in habitat creation, ecological design, and green infrastructure integration.</p>
         </div>
       </div>
     </div>
@@ -3525,10 +3523,6 @@
               <div class="mini-rm-card mc-p3" onclick="openPanel('p3-proj-future')">Additional improvement will be proposed</div>
             </div>
           </div>
-        </div>
-        <div class="case-study">
-          <h4>Case Study</h4>
-          <p><strong>Finland's Circular Economy Roadmap:</strong> The first national circular economy strategy includes requirements for lifecycle carbon and circularity assessments for planning approvals, investment in digital platforms to track materials across buildings, and has created new business models in reuse and repair.</p>
         </div>
       </div>
       <div class="principle-detail-image">
@@ -3618,10 +3612,6 @@
             </div>
           </div>
         </div>
-        <div class="case-study">
-          <h4>Case Study</h4>
-          <p><strong>Operation Crayweed (Investa):</strong> Investa partnered with the Sydney Institute of Marine Science to restore crayweed along 70km of Sydney's foreshores. Crayweed supports fisheries, captures carbon, and maintains water quality. The project develops natural capital accounting methodologies while facilitating staff engagement through volunteering.</p>
-        </div>
       </div>
       <div class="principle-detail-image">
         <img src="images/image18.jpeg" alt="Burwood Brickworks">
@@ -3648,6 +3638,75 @@
         <h3>Improve Measurement, Data &amp; Decision-Making</h3>
         <p>Nature-positive outcomes are enabled through robust ecological data, consistent metrics and integrated decision-making across the built environment.</p>
         <p>Strengthening ecological literacy and reporting supports earlier action, clearer accountability and the integration of nature into everyday planning, design and procurement decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section class="case-carousel-section" id="casestudies">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-label">Case Studies</div>
+      <h2>Nature Positive in Practice</h2>
+      <p>Leading Australian projects demonstrating how the built environment can protect, restore and enhance nature.</p>
+    </div>
+    <div class="case-carousel fade-in">
+      <div class="case-carousel-card">
+        <img src="images/image7.jpeg" alt="Ginninderry, ACT">
+        <div class="case-carousel-body">
+          <h4>Ginninderry</h4>
+          <div class="case-carousel-location">ACT / NSW</div>
+          <p>A 1,600-hectare development on the ACT/NSW border integrating conservation corridors, woodland restoration, and Indigenous cultural values into a master-planned community.</p>
+        </div>
+      </div>
+      <div class="case-carousel-card">
+        <img src="images/image11.jpeg" alt="Alkimos Beach, WA">
+        <div class="case-carousel-body">
+          <h4>Alkimos Beach</h4>
+          <div class="case-carousel-location">Western Australia</div>
+          <p>A coastal development demonstrating nature-sensitive design by protecting and enhancing native vegetation, fauna corridors, and wetland systems alongside residential communities.</p>
+        </div>
+      </div>
+      <div class="case-carousel-card">
+        <img src="images/image14.jpeg" alt="Quay Quarter Tower, Sydney">
+        <div class="case-carousel-body">
+          <h4>Quay Quarter Tower</h4>
+          <div class="case-carousel-location">Sydney, NSW</div>
+          <p>Adaptive reuse of an existing tower, retaining 65% of the original structure and significantly reducing embodied carbon and material waste through innovative circular design.</p>
+        </div>
+      </div>
+      <div class="case-carousel-card">
+        <img src="images/image19.png" alt="80 Ann St, Brisbane">
+        <div class="case-carousel-body">
+          <h4>80 Ann St</h4>
+          <div class="case-carousel-location">Brisbane, QLD</div>
+          <p>An office tower integrating biophilic design, green terraces and nature-based solutions into its facade and public realm, achieving a 6 Star Green Star rating.</p>
+        </div>
+      </div>
+      <div class="case-carousel-card">
+        <img src="images/image16.jpeg" alt="The Exchange, Sydney">
+        <div class="case-carousel-body">
+          <h4>The Exchange</h4>
+          <div class="case-carousel-location">Sydney, NSW</div>
+          <p>Designed by Kengo Kuma, this civic building features a timber-and-glass facade using sustainably sourced materials, embodying low-impact design principles.</p>
+        </div>
+      </div>
+      <div class="case-carousel-card">
+        <img src="images/image18.jpeg" alt="Burwood Brickworks, VIC">
+        <div class="case-carousel-body">
+          <h4>Burwood Brickworks</h4>
+          <div class="case-carousel-location">Victoria</div>
+          <p>Achieved Living Building Challenge certification, featuring rooftop urban farming, solar power, water recycling and integrated urban ecology.</p>
+        </div>
+      </div>
+      <div class="case-carousel-card">
+        <img src="images/image35.jpeg" alt="Operation Crayweed">
+        <div class="case-carousel-body">
+          <h4>Operation Crayweed</h4>
+          <div class="case-carousel-location">Investa &amp; Sydney Institute of Marine Science</div>
+          <p>Restoring crayweed along 70km of Sydney&rsquo;s foreshores. Crayweed supports fisheries, captures carbon, and maintains water quality while developing natural capital accounting methodologies.</p>
+        </div>
       </div>
     </div>
   </div>
