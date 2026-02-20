@@ -1888,8 +1888,7 @@
 
   /* Expandable action columns */
   .irm-act-col {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
     opacity: 0;
     padding: 0 !important;
     border-right: none !important;
@@ -1897,10 +1896,6 @@
     min-width: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
-  }
-  /* Keep action cells influencing row height even when collapsed */
-  .irm-cell.irm-act-col {
-    overflow-y: visible;
   }
   .irm-expanded .irm-act-col {
     opacity: 1;
@@ -4550,12 +4545,24 @@ const panelData = {
 };
 
 // Toggle expandable action columns in roadmap grid
+// Track whether we've captured expanded row heights
+let actionsRowHeightsCaptured = false;
+
 function toggleActions() {
   const grid = document.getElementById('irmGrid');
   const btn = document.querySelector('.irm-h-2028-hint');
   const isExpanded = grid.classList.toggle('irm-expanded');
   if (btn) {
     btn.innerHTML = '<span class="irm-h-2028-arrow">' + (isExpanded ? '&#x25C0;' : '&#x25B6;') + '</span> ' + (isExpanded ? 'Hide actions' : 'Show actions');
+  }
+  // On first expand, wait for transition then capture row heights
+  if (isExpanded && !actionsRowHeightsCaptured) {
+    setTimeout(function() {
+      var rows = getComputedStyle(grid).gridTemplateRows.split(' ');
+      // Lock those row heights so they persist when collapsed
+      grid.style.gridTemplateRows = rows.join(' ');
+      actionsRowHeightsCaptured = true;
+    }, 700);
   }
 }
 
