@@ -2287,19 +2287,6 @@
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--green-mid);
   }
-  .irm-panel-section h4 .irm-section-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-  }
-  .irm-panel-section h4 .icon-actions { background: rgba(68,136,62,0.12); }
-  .irm-panel-section h4 .icon-gbca { background: rgba(34,156,71,0.12); }
-  .irm-panel-section h4 .icon-industry { background: rgba(0,86,135,0.12); }
-
   .irm-panel-section ul {
     list-style: none;
     padding: 0;
@@ -4656,21 +4643,21 @@ function openPanel(id) {
 
   // Actions needed
   html += '<div class="irm-panel-section actions-section">';
-  html += '<h4><span class="irm-section-icon icon-actions">&#x1F3AF;</span> Actions Needed in the Next Five Years</h4>';
+  html += '<h4>Actions Needed in the Next Five Years</h4>';
   html += '<ul>';
   data.actions.forEach(a => { html += '<li>' + a + '</li>'; });
   html += '</ul></div>';
 
   // GBCA actions
   html += '<div class="irm-panel-section gbca-section">';
-  html += '<h4><span class="irm-section-icon icon-gbca">&#x2B50;</span> What GBCA Is Doing</h4>';
+  html += '<h4>What GBCA Is Doing</h4>';
   html += '<ul>';
   data.gbca.forEach(g => { html += '<li>' + g + '</li>'; });
   html += '</ul></div>';
 
   // Industry actions
   html += '<div class="irm-panel-section industry-section">';
-  html += '<h4><span class="irm-section-icon icon-industry">&#x1F3ED;</span> What Industry Needs to Do</h4>';
+  html += '<h4>What Industry Needs to Do</h4>';
   html += '<ul>';
   data.industry.forEach(i => { html += '<li>' + i + '</li>'; });
   html += '</ul></div>';
