@@ -70,11 +70,19 @@
     height: 70px;
   }
   .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--green-mid);
     font-family: var(--font-ui);
     font-weight: 700;
     font-size: 1.1rem;
     letter-spacing: -0.3px;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    height: 32px;
+    width: auto;
   }
   .nav-logo span { color: var(--green-light); }
   .nav-links {
@@ -116,71 +124,72 @@
 
   /* ===== HERO ===== */
   .hero {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     position: relative;
     overflow: hidden;
   }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background: url('images/image4.jpeg') center/cover no-repeat;
-  }
-  .hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,40,20,0.55) 0%, rgba(0,40,20,0.7) 100%);
-  }
-  .hero-pattern {
-    display: none;
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 10rem 2rem 6rem;
+  .hero-green {
+    background: var(--green-mid);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    justify-content: space-between;
+    padding: 3rem 4rem 0;
+    position: relative;
+  }
+  .hero-logo {
+    width: 180px;
+    margin-bottom: 2rem;
+  }
+  .hero-logo img {
     width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1);
   }
   .hero-text {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
   }
   .hero-text h1 {
     font-family: var(--font-primary);
-    font-size: 3.2rem;
+    font-size: 3.4rem;
     font-weight: 900;
     color: var(--white);
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
     letter-spacing: -0.5px;
   }
-  .hero-text h1 span { color: var(--green-light); font-weight: 900; }
+  .hero-text h1 span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    margin-top: 0.75rem;
+    letter-spacing: 0;
+  }
   .hero-text p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: rgba(255,255,255,0.85);
-    max-width: 600px;
+    max-width: 480px;
     margin-bottom: 2rem;
     line-height: 1.7;
   }
-  .hero-text .subtitle {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 1.5rem;
-    font-weight: 500;
+  .hero-stripes {
+    width: 100%;
+    margin-top: auto;
   }
-  .hero-image {
-    display: none;
+  .hero-stripes img {
+    width: 100%;
+    height: 40px;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-photo {
+    background: url('images/image4.jpeg') center/cover no-repeat;
+    min-height: 100%;
   }
   .cta-btn {
     display: inline-flex;
@@ -1403,6 +1412,9 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-photo { min-height: 40vh; }
+    .hero-green { padding: 2rem 2rem 0; }
     .hero-text h1 { font-size: 2.4rem; }
     .principle-detail-inner { grid-template-columns: 1fr; }
     .enablers-grid { grid-template-columns: 1fr; }
@@ -2489,7 +2501,7 @@
 <!-- Navigation -->
 <nav id="navbar">
   <div class="nav-inner">
-    <div class="nav-logo">GBCA <span>Nature Positive Roadmap</span></div>
+    <a href="#hero" class="nav-logo"><img src="images/GBCA star.png" alt="GBCA"> <span>Nature Positive Roadmap</span></a>
     <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -2511,18 +2523,23 @@
 
 <!-- Hero -->
 <section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
+  <div class="hero-green">
+    <div class="hero-logo">
+      <img src="images/GBCA logo large.png" alt="Green Building Council Australia">
+    </div>
     <div class="hero-text">
-      <p class="subtitle">Green Building Council of Australia</p>
-      <h1>Nature Positive Roadmap<br><span>for New Developments</span></h1>
+      <h1>Nature positive roadmap<span>For new developments</span></h1>
       <p>Setting a vision for new developments to actively contribute towards national and international nature positive efforts, halting and reversing nature loss by 2030.</p>
       <a href="#roadmap" class="cta-btn">
         Explore the Roadmap
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
     </div>
+    <div class="hero-stripes">
+      <img src="images/Biodiversity stripes.png" alt="Biodiversity stripes">
+    </div>
   </div>
+  <div class="hero-photo"></div>
 </section>
 
 <!-- Stats Bar -->
