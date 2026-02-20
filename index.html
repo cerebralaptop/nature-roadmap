@@ -275,26 +275,33 @@
   /* ===== ACKNOWLEDGEMENT OF COUNTRY ===== */
   .acknowledgement-section {
     background: #1B4332;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     text-align: center;
   }
+  .acknowledgement-section::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: rgba(255,255,255,0.4);
+    margin: 0 auto 2rem;
+  }
   .acknowledgement-section p {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     font-size: 0.95rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.9);
+    line-height: 1.9;
+    color: rgba(255,255,255,0.85);
     font-style: normal;
   }
   .acknowledgement-section .ack-heading {
-    font-family: var(--font-ui);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 700;
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 300;
     color: var(--white);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     font-style: normal;
+    letter-spacing: 0.5px;
   }
 
   /* ===== PURPOSE SECTION ===== */
@@ -2558,7 +2565,7 @@
 <!-- Acknowledgement of Country -->
 <div class="acknowledgement-section">
   <p class="ack-heading">Acknowledgement of Country</p>
-  <p>We at the Green Building Council of Australia recognise the Traditional Custodians of Country throughout Australia. We pay our respects to Elders past and present, and recognise their continuous connection to lands, skies and waters.</p>
+  <p>We at the Green Building Council of Australia recognise the Traditional Custodians of Country throughout Australia. We pay our respects to Elders past and present, and recognise their continuous connection to lands, skies and waters. We recognise that Australia&rsquo;s First Peoples have been custodians of this land for tens of thousands of years, and their knowledge and stewardship of Country is central to halting and reversing nature loss.</p>
 </div>
 
 <!-- Quote -->
