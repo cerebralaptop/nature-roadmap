@@ -4545,9 +4545,6 @@ const panelData = {
 };
 
 // Toggle expandable action columns in roadmap grid
-// Track whether we've captured expanded row heights
-let actionsRowHeightsCaptured = false;
-
 function toggleActions() {
   const grid = document.getElementById('irmGrid');
   const btn = document.querySelector('.irm-h-2028-hint');
@@ -4555,16 +4552,29 @@ function toggleActions() {
   if (btn) {
     btn.innerHTML = '<span class="irm-h-2028-arrow">' + (isExpanded ? '&#x25C0;' : '&#x25B6;') + '</span> ' + (isExpanded ? 'Hide actions' : 'Show actions');
   }
-  // On first expand, wait for transition then capture row heights
-  if (isExpanded && !actionsRowHeightsCaptured) {
-    setTimeout(function() {
-      var rows = getComputedStyle(grid).gridTemplateRows.split(' ');
-      // Lock those row heights so they persist when collapsed
-      grid.style.gridTemplateRows = rows.join(' ');
-      actionsRowHeightsCaptured = true;
-    }, 700);
-  }
 }
+
+// On page load, briefly expand the grid invisibly to capture row heights
+window.addEventListener('DOMContentLoaded', function() {
+  const grid = document.getElementById('irmGrid');
+  if (!grid) return;
+  // Disable transitions so the expand is instant and invisible
+  grid.style.transition = 'none';
+  grid.classList.add('irm-expanded');
+  // Force layout recalc
+  void grid.offsetHeight;
+  // Capture the row heights
+  var rows = getComputedStyle(grid).gridTemplateRows;
+  // Collapse back
+  grid.classList.remove('irm-expanded');
+  void grid.offsetHeight;
+  // Lock the row heights
+  grid.style.gridTemplateRows = rows;
+  // Re-enable transitions on next frame
+  requestAnimationFrame(function() {
+    grid.style.transition = '';
+  });
+});
 
 // Panel functions
 function openPanel(id) {
