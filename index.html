@@ -124,23 +124,24 @@
 
   /* ===== HERO ===== */
   .hero {
-    min-height: 90vh;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
     overflow: hidden;
+    margin-top: -60px; /* Tuck under fixed nav */
   }
   .hero-green {
     background: var(--green-mid);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 3rem 4rem 0;
+    padding: 5rem 4rem 0;
     position: relative;
   }
   .hero-logo {
-    width: 180px;
-    margin-bottom: 2rem;
+    width: 160px;
+    margin-bottom: 1.5rem;
   }
   .hero-logo img {
     width: 100%;
@@ -152,26 +153,29 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 2rem;
   }
   .hero-text h1 {
     font-family: var(--font-primary);
-    font-size: 3.4rem;
+    font-size: 3.2rem;
     font-weight: 900;
     color: var(--white);
     line-height: 1.1;
     margin-bottom: 1rem;
     letter-spacing: -0.5px;
+    text-transform: uppercase;
   }
   .hero-text h1 span {
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 400;
     color: rgba(255,255,255,0.8);
     margin-top: 0.75rem;
     letter-spacing: 0;
+    text-transform: none;
   }
   .hero-text p {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: rgba(255,255,255,0.85);
     max-width: 480px;
     margin-bottom: 2rem;
@@ -183,7 +187,7 @@
   }
   .hero-stripes img {
     width: 100%;
-    height: 40px;
+    height: 35px;
     object-fit: cover;
     display: block;
   }
