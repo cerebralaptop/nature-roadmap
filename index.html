@@ -116,76 +116,71 @@
 
   /* ===== HERO ===== */
   .hero {
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
   }
   .hero-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #1a3a15 0%, var(--green-mid) 40%, var(--green-dark) 100%);
+    background: url('images/image4.jpeg') center/cover no-repeat;
   }
   .hero-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('images/image4.jpeg') center/cover;
-    opacity: 0.18;
+    background: linear-gradient(180deg, rgba(0,40,20,0.55) 0%, rgba(0,40,20,0.7) 100%);
   }
   .hero-pattern {
-    position: absolute;
-    inset: 0;
-    opacity: 0.06;
-    background-image: radial-gradient(circle at 25% 25%, white 1px, transparent 1px),
-                       radial-gradient(circle at 75% 75%, white 1px, transparent 1px);
-    background-size: 60px 60px;
+    display: none;
   }
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 8rem 2rem 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    padding: 10rem 2rem 6rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
     width: 100%;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .hero-text h1 {
     font-family: var(--font-primary);
-    font-size: 40px;
-    font-weight: 700;
+    font-size: 3.2rem;
+    font-weight: 300;
     color: var(--white);
-    line-height: 40px;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
     letter-spacing: -0.5px;
   }
-  .hero-text h1 span { color: var(--green-light); }
+  .hero-text h1 span { color: var(--green-light); font-weight: 300; }
   .hero-text p {
     font-size: 1.1rem;
-    color: rgba(255,255,255,0.9);
-    max-width: 520px;
+    color: rgba(255,255,255,0.85);
+    max-width: 600px;
     margin-bottom: 2rem;
+    line-height: 1.7;
   }
   .hero-text .subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: rgba(255,255,255,0.6);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
   }
   .hero-image {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-  }
-  .hero-image img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    display: block;
+    display: none;
   }
   .cta-btn {
     display: inline-flex;
@@ -1408,9 +1403,7 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
-    .hero-content { grid-template-columns: 1fr; }
-    .hero-image { display: none; }
-    .hero-text h1 { font-size: 2.8rem; }
+    .hero-text h1 { font-size: 2.4rem; }
     .principle-detail-inner { grid-template-columns: 1fr; }
     .enablers-grid { grid-template-columns: 1fr; }
     .tnfd-steps-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2519,19 +2512,15 @@
 <!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-pattern"></div>
   <div class="hero-content">
     <div class="hero-text">
       <p class="subtitle">Green Building Council of Australia</p>
-      <h1>Nature Positive<br>Roadmap <span>for New Developments</span></h1>
+      <h1>Nature Positive Roadmap<br><span>for New Developments</span></h1>
       <p>Setting a vision for new developments to actively contribute towards national and international nature positive efforts, halting and reversing nature loss by 2030.</p>
       <a href="#roadmap" class="cta-btn">
         Explore the Roadmap
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
-    </div>
-    <div class="hero-image">
-      <img src="images/image4.jpeg" alt="Nature positive development">
     </div>
   </div>
 </section>
